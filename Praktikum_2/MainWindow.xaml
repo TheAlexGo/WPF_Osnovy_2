@@ -12,13 +12,13 @@
             <RowDefinition Height="*"></RowDefinition>
         </Grid.RowDefinitions>
         <Grid Grid.Row="0" Background="LightBlue">
-            <TextBlock Height="20" Margin="10,10,0,10" HorizontalAlignment="Left" Width="95" Background="AliceBlue">
+            <TextBlock Height="20" Margin="10,10,414,10"  Background="AliceBlue" TextAlignment="Center">
                 Первый пункт
             </TextBlock>
-            <TextBlock Height="20" Margin="110,10,317,10" Background="AliceBlue">
+            <TextBlock Height="20" Margin="110,10,317,10" Background="AliceBlue" TextAlignment="Center">
                 Второй пункт
             </TextBlock>
-            <TextBlock Height="20" Margin="207,10,224,10" Background="AliceBlue">
+            <TextBlock Height="20" Margin="207,10,224,10" Background="AliceBlue" TextAlignment="Center">
                 Третий пункт
             </TextBlock>
             <Button Content="Очистить" Margin="363,0,0,0" Click="Button_Click"></Button>
