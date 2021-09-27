@@ -5,19 +5,29 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Praktikum_2"
         mc:Ignorable="d"
-        Title="Вариант 2. Динамическая перестройка!" Height="350" Width="525">
-    <UniformGrid Columns="2" Rows="2">
-        <Grid>
-            <TextBlock Background="#FFFAD2D2" Padding="10">Ichi!</TextBlock>
+        Title="Вариант 3. Поле с очищалкой и меню!" Height="350" Width="525">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0" Background="LightBlue">
+            <TextBlock Height="20" Margin="10,10,0,10" HorizontalAlignment="Left" Width="95" Background="AliceBlue">
+                Первый пункт
+            </TextBlock>
+            <TextBlock Height="20" Margin="110,10,317,10" Background="AliceBlue">
+                Второй пункт
+            </TextBlock>
+            <TextBlock Height="20" Margin="207,10,224,10" Background="AliceBlue">
+                Третий пункт
+            </TextBlock>
+            <Button Content="Очистить" Margin="363,0,0,0" Click="Button_Click"></Button>
         </Grid>
-        <Grid>
-            <TextBlock Background="LightBlue" Padding="10">Ni!</TextBlock>
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <TextBox Name="TextBoxArea" />
         </Grid>
-        <Grid>
-            <TextBlock Background="LightGray" Padding="10">San!</TextBlock>
-        </Grid>
-        <Grid>
-            <TextBlock Background="LightSteelBlue" Padding="10">Yon!</TextBlock>
-        </Grid>
-    </UniformGrid>
+    </Grid>
 </Window>
