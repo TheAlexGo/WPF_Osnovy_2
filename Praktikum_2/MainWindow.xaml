@@ -5,29 +5,35 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Praktikum_2"
         mc:Ignorable="d"
-        Title="Вариант 3. Поле с очищалкой и меню!" Height="350" Width="525">
+        Title="Вариант 4. Рисовашка!" Height="350" Width="525" Loaded="Window_Loaded">
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="40"></RowDefinition>
-            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition Height="22"></RowDefinition>
         </Grid.RowDefinitions>
-        <Grid Grid.Row="0" Background="LightBlue">
-            <TextBlock Height="20" Margin="10,10,414,10"  Background="AliceBlue" TextAlignment="Center">
-                Первый пункт
-            </TextBlock>
-            <TextBlock Height="20" Margin="110,10,317,10" Background="AliceBlue" TextAlignment="Center">
-                Второй пункт
-            </TextBlock>
-            <TextBlock Height="20" Margin="207,10,224,10" Background="AliceBlue" TextAlignment="Center">
-                Третий пункт
-            </TextBlock>
-            <Button Content="Очистить" Margin="363,0,0,0" Click="Button_Click"></Button>
-        </Grid>
-        <Grid Grid.Row="1">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition/>
-            </Grid.ColumnDefinitions>
-            <TextBox Name="TextBoxArea" />
-        </Grid>
+        <StackPanel Margin="5" Orientation="Horizontal">
+            <TextBlock Margin="5" Text="Режим редактирования: " />
+            <ComboBox Name="lstEditingMode"
+ VerticalAlignment="Center"
+ HorizontalAlignment="Stretch" 
+ Margin="0,0,10,0"
+SelectionChanged="lstEditingMode_SelectionChanged" />
+        </StackPanel>
+        <!--
+ InkCanvas - Определяет область, которая рисует и отображает
+рукописные штрихи.
+ -->
+        <InkCanvas Name="inkCanvas"
+ Grid.Row="1"
+ Background="LightBlue"
+ EditingMode="{Binding ElementName=lstEditingMode,
+Path=SelectedItem}"
+ Gesture="inkCanvas_Gesture">
+        </InkCanvas>
+        <TextBox Name="gestureName"
+ HorizontalAlignment="Stretch"
+ VerticalAlignment="Bottom"
+ Grid.Row="2" />
     </Grid>
 </Window>

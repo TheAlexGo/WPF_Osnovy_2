@@ -7,6 +7,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Documents;
+using System.Windows.Ink;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
@@ -25,9 +26,32 @@ namespace Praktikum_2
             InitializeComponent();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+
+        private void inkCanvas_Gesture(object sender, InkCanvasGestureEventArgs e)
         {
-            TextBoxArea.Text = "";
+            String gestures = "";
+            // Выборка "предпологаемых" гестур.
+            foreach (GestureRecognitionResult res in
+           e.GetGestureRecognitionResults())
+                gestures += res.ApplicationGesture.ToString() + "; ";
+            // Отображаем название гестуры.
+            gestureName.Text = gestures;
+        }
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            // Выборка всех режимов редактирования InkCanvas.
+            foreach (InkCanvasEditingMode mode in Enum.GetValues(typeof(InkCanvasEditingMode)))
+            {
+                if (mode.ToString() == "Ink" || mode.ToString() == "EraseByPoint")
+                {
+                    lstEditingMode.Items.Add(mode);
+                }
+            }
+            lstEditingMode.SelectedItem = inkCanvas.EditingMode;
+        }
+        private void lstEditingMode_SelectionChanged(object sender,
+       SelectionChangedEventArgs e)
+        {
         }
     }
 }
