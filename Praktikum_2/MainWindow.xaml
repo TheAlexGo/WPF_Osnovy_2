@@ -5,17 +5,21 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Praktikum_2"
         mc:Ignorable="d"
-        Title="Контейнер компоновки UniformGrid" Height="350" Width="525">
-    <!--UniformGrid - Предоставляет способ размещения элементов в
-сетки, при котором все ячейки имеют одинаковый размер.-->
-    <UniformGrid Rows="2" Columns="2">
-        <TextBlock Background="LightGoldenrodYellow" Padding="10"
-Margin="10">TextBlock 1</TextBlock>
-        <TextBlock Background="LightBlue" Padding="10"
-Margin="10">TextBlock2</TextBlock>
-        <TextBlock Background="LightGray" Padding="10"
-Margin="10">TextBlock3</TextBlock>
-        <TextBlock Background="LightSteelBlue" Padding="10"
-Margin="10">TextBlock4</TextBlock>
-    </UniformGrid>
+        Title="Контейнер компоновки Canvas" Height="350" Width="525">
+    <!--Canvas - Определяет область, в рамках которой можно явно
+расположить дочерние элементы путем использования координат,
+являющихся относительными к области Canvas.-->
+
+    <Canvas>
+        <TextBlock Canvas.Left="30" Canvas.Top="60"
+ Height="100" Background="LightCoral"
+ TextWrapping="WrapWithOverflow" Padding="10">
+ Canvas.Left="30" Canvas.Top="60"
+        </TextBlock>
+        <TextBlock Canvas.Left="160" Canvas.Top="120"
+ Height="100" Width="200" Background="LightGreen"
+ TextWrapping="WrapWithOverflow" Padding="10">
+ Canvas.Left="260" Canvas.Top="120"
+        </TextBlock>
+    </Canvas>
 </Window>
