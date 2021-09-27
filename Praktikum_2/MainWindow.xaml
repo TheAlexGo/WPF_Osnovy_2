@@ -7,10 +7,8 @@
         mc:Ignorable="d"
         Title="Вариант 2. Динамическая перестройка!" Height="350" Width="525">
     <UniformGrid Columns="2" Rows="2">
-        <Grid Margin="0,72,105,0">
-            <TextBox Margin="70,-56,0,123" RenderTransformOrigin="0.5,0.5">123123
-            </TextBox>
-            <TextBlock Background="#FFFAD2D2" Padding="10" Margin="0,-11,-104,0">Ichi!</TextBlock>
+        <Grid>
+            <TextBlock Background="#FFFAD2D2" Padding="10">Ichi!</TextBlock>
         </Grid>
         <Grid>
             <TextBlock Background="LightBlue" Padding="10">Ni!</TextBlock>
