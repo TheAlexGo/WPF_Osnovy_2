@@ -5,21 +5,35 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Praktikum_2"
         mc:Ignorable="d"
-        Title="Контейнер компоновки Canvas" Height="350" Width="525">
-    <!--Canvas - Определяет область, в рамках которой можно явно
-расположить дочерние элементы путем использования координат,
-являющихся относительными к области Canvas.-->
-
-    <Canvas>
-        <TextBlock Canvas.Left="30" Canvas.Top="60"
- Height="100" Background="LightCoral"
- TextWrapping="WrapWithOverflow" Padding="10">
- Canvas.Left="30" Canvas.Top="60"
-        </TextBlock>
-        <TextBlock Canvas.Left="160" Canvas.Top="120"
- Height="100" Width="200" Background="LightGreen"
- TextWrapping="WrapWithOverflow" Padding="10">
- Canvas.Left="260" Canvas.Top="120"
-        </TextBlock>
-    </Canvas>
+        Title=" Контейнер компоновки InkCanvas" Height="350" Width="525" Loaded="Window_Loaded">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition Height="22"></RowDefinition>
+        </Grid.RowDefinitions>
+        <StackPanel Margin="5" Orientation="Horizontal">
+            <TextBlock Margin="5" Text="Режим редактирования: " />
+            <ComboBox Name="lstEditingMode"
+ VerticalAlignment="Center"
+ HorizontalAlignment="Stretch" 
+ Margin="0,0,10,0"
+SelectionChanged="lstEditingMode_SelectionChanged" />
+        </StackPanel>
+        <!--
+ InkCanvas - Определяет область, которая рисует и отображает
+рукописные штрихи.
+ -->
+        <InkCanvas Name="inkCanvas"
+ Grid.Row="1"
+ Background="LightBlue"
+ EditingMode="{Binding ElementName=lstEditingMode,
+Path=SelectedItem}"
+ Gesture="inkCanvas_Gesture">
+        </InkCanvas>
+        <TextBox Name="gestureName"
+ HorizontalAlignment="Stretch"
+ VerticalAlignment="Bottom"
+ Grid.Row="2" />
+    </Grid>
 </Window>
